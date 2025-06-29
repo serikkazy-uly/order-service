@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Order Service</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+
+    <div id="wrapper" style="padding-top: 100px;">
+        <center>
+        
+        <section id="main">
+            <header>
+                <h1>Сервис заказов</h1>
+            </header>
+            
+            <form>
+                <input type="text" id="orderID" placeholder="Order ID" style="padding: 10px; margin-right: 10px;"/>
+                <button type="button" onclick="getOrder()">Поиск заказа по ID</button>
+            </form>
+            
+            <div id="result"></div>
+        </section>
+        </center>
+    </div>
+
+    <script>
+        function getOrder() {
+            fetch('/order/' + document.getElementById('orderID').value)
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('result').innerHTML = 
+                        '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                });
+        }
+    </script>
+</body>
+</html>

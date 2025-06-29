@@ -1,0 +1,21 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+*.sqlite
+
+# Logs
+*.log
+
+# Binary
+bin/
+dist/
+
+# Go
+vendor/
+
+#scripts
+*.sh
